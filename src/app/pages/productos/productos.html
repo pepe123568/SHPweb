@@ -1,0 +1,33 @@
+
+<div class="contenedor">
+
+  <h1>Nuestros productos</h1>
+
+  <p>Explora los productos disponibles en nuestra tienda.</p>
+
+  <div class="lista-productos">
+
+    @for (producto of productos; track producto.id) {
+
+      <div class="producto">
+
+        <img
+          [src]="producto.image"
+          [alt]="producto.title"
+        >
+
+        <h3>{{ producto.title }}</h3>
+
+        <p>{{ producto.description }}</p>
+
+        <h3 class="precio">
+          ${{ producto.price }} USD
+        </h3>
+
+      </div>
+
+    }
+
+  </div>
+
+</div>

@@ -1,0 +1,60 @@
+.login {
+  width: 380px;
+  max-width: 85%;
+  margin: 65px auto;
+  padding: 30px;
+  background-color: #fffdf7;
+  border-left: 6px solid #54745d;
+  box-shadow: 0 3px 10px #d7d4c9;
+}
+
+h2 {
+  text-align: left;
+  color: #284b36;
+  margin-bottom: 25px;
+}
+
+.campo {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #a5b5a5;
+  background-color: #f9faf6;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: 2px solid #779c7d;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  color: white;
+  background-color: #54745d;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #385741;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ab3434;
+  font-size: 13px;
+}

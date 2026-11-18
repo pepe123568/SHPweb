@@ -1,0 +1,99 @@
+.contenedor {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: left;
+  color: #284b36;
+  border-bottom: 2px solid #779c7d;
+  padding-bottom: 10px;
+}
+
+h2 {
+  margin-top: 25px;
+  color: #385741;
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fffdf7;
+  text-align: left;
+}
+
+th {
+  padding: 13px;
+  background-color: #54745d;
+  color: white;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #cbd5c6;
+}
+
+tr:nth-child(even) {
+  background-color: #eef2e9;
+}
+
+td img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  padding: 11px;
+  margin: 10px 0;
+  border: 1px solid #a5b5a5;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  background-color: #54745d;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #385741;
+}
+
+.borrar {
+  background-color: #ad534a;
+}
+
+.borrar:hover {
+  background-color: #8d3b33;
+}
+
+.col-lg-4 {
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #fffdf7;
+  border-left: 5px solid #779c7d;
+  box-shadow: 0 2px 8px #ddd9cf;
+}

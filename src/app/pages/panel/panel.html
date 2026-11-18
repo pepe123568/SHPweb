@@ -1,0 +1,154 @@
+
+<div class="contenedor">
+
+  <h1>Operaciones CRUD</h1>
+
+  <h2>Lista de productos</h2>
+
+  <div class="tabla-contenedor">
+    <table>
+
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Título</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (producto of productos(); track producto.id) {
+          <tr>
+
+            <td>
+              <img
+                [src]="producto.image"
+                [alt]="producto.title"
+              >
+            </td>
+
+            <td>{{ producto.title }}</td>
+
+            <td>{{ producto.category }}</td>
+
+            <td>${{ producto.price }}</td>
+
+            <td>
+              <button
+                class="borrar"
+                (click)="borrarProducto(producto.id)">
+                Borrar
+              </button>
+
+              <button
+                class="actualizar"
+                (click)="editarProducto(producto)">
+                Actualizar
+              </button>
+            </td>
+
+          </tr>
+        }
+      </tbody>
+
+    </table>
+  </div>
+
+  @if (idEdicion !== null) {
+
+    <h2>Actualizar producto</h2>
+
+    <form (ngSubmit)="guardarProducto()">
+
+      <input
+        name="title"
+        [(ngModel)]="formulario.title"
+        placeholder="Título"
+        required
+      >
+
+      <input
+        name="category"
+        [(ngModel)]="formulario.category"
+        placeholder="Categoría"
+        required
+      >
+
+      <input
+        type="number"
+        name="price"
+        [(ngModel)]="formulario.price"
+        min="0.01"
+        step="0.01"
+        required
+      >
+
+      <input
+        name="description"
+        [(ngModel)]="formulario.description"
+        placeholder="Descripción"
+        required
+      >
+
+      <input
+        name="image"
+        [(ngModel)]="formulario.image"
+        placeholder="URL de imagen"
+        required
+      >
+
+      <button type="submit">Guardar cambios</button>
+
+      <button type="button" (click)="cancelarEdicion()">
+        Cancelar
+      </button>
+
+    </form>
+
+  }
+
+</div>
+
+<!-- CREATE y UPDATE: formulario -->
+    <div class="col-lg-4">
+      <h2>{{ editingId() === null ? 'Nuevo producto' : 'Editar producto #' + editingId() }}</h2>
+
+
+      <form (ngSubmit)="save()">
+        <label for="title">Título</label>
+        <input id="title" name="title" class="form-control mb-3" [(ngModel)]="form.title" required />
+
+
+        <label for="price">Precio</label>
+        <input id="price" name="price" type="number" min="0" step="0.01" class="form-control mb-3"
+          [(ngModel)]="form.price" required />
+
+
+        <label for="category">Categoría</label>
+        <select id="category" name="category" class="form-select mb-3" [(ngModel)]="form.category" required>
+          <option value="">Selecciona una categoría</option>
+          @for (category of categorias(); track category) {
+            <option [value]="category">{{ category }}</option>
+          }
+        </select>
+
+
+        <label for="image">URL de la imagen</label>
+        <input id="image" name="image" type="url" class="form-control mb-3" [(ngModel)]="form.image" required />
+
+
+        <label for="description">Descripción</label>
+        <textarea id="description" name="description" rows="3" class="form-control mb-3"
+          [(ngModel)]="form.description"></textarea>
+
+
+        <button type="submit" class="btn btn-primary w-100">Guardar</button>
+
+
+        @if (editingId() !== null) {
+          <button type="button" class="btn btn-outline-secondary w-100 mt-2" (click)="cancel()">Cancelar</button>
+        }
+      </form>
+    </div>
